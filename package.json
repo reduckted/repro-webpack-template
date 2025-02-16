@@ -28,6 +28,6 @@
         "typescript": "5.7.3"
     },
     "overrides": {
-        "webpack": "github:webpack/webpack#5ad5c12ffe5e7b41ea97390870d5509a37f29bf4"
+        "webpack": "5.95.0"
     }
 }
