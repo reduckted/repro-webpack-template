@@ -1,21 +1,23 @@
-const { Reproduction } = require("./plugins/reproduction");
+const { ReproductionPlugin } = require("./plugins/reproduction-plugin");
 const path = require("node:path");
 
 /** @type {import('webpack').Configuration}*/
 module.exports = {
     context: __dirname,
     mode: "development",
-    entry: "./standalone/index.js",
+    devtool: false,
+    entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "out"),
     },
     module: {
         rules: [
             {
-                test: /\.html$/,
-                use: "raw-loader",
+                test: /\.?(svg|html)$/,
+                resourceQuery: /\?loadResource/,
+                type: "asset/source",
             },
         ],
     },
-    plugins: [new Reproduction()],
+    plugins: [new ReproductionPlugin()],
 };
